@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MedicalRecordController">
+
+    <top>
+        <HBox spacing="10" style="-fx-background-color: #1e293b;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+           </padding>
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Medical Record Details" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font></Label>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+             <VBox spacing="20">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                
+                <!-- Patient Basic Info -->
+                <TitledPane expanded="true" text="Patient Basic Info">
+                    <GridPane hgap="20" vgap="10">
+                        <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="nameLabel" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label text="Gender:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Label fx:id="genderLabel" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                        <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="ageLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Blood Type:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="bloodLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                        <Label text="National ID:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label fx:id="nationalIdLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Insurance:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="insuranceLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                        <Label text="Contact:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label fx:id="contactLabel" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+
+                        <Label text="DOB:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label fx:id="dobLabel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Scan Info:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label fx:id="scanTimeLabel" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Medical Summary -->
+                <TitledPane expanded="true" text="Medical Summary">
+                    <VBox spacing="5">
+                        <Label fx:id="chiefComplaintLabel" />
+                        <Label fx:id="currentConditionLabel" />
+                        <Label fx:id="triageCategoryLabel" />
+                        <Label fx:id="riskLevelLabel" />
+                    </VBox>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Medications Table -->
+                <TitledPane text="Current Medications">
+                    <TableView fx:id="medicationTable" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="medNameCol" text="Medication" />
+                            <TableColumn fx:id="dosageCol" text="Dosage" />
+                            <TableColumn fx:id="frequencyCol" text="Frequency" />
+                            <TableColumn fx:id="routeCol" text="Route" />
+                            <TableColumn fx:id="startDateCol" text="Start Date" />
+                            <TableColumn fx:id="prescribedByCol" text="Prescribed By" />
+                        </columns>
+                    </TableView>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Lab Tests -->
+                <TitledPane text="Recent Lab Tests">
+                    <TableView fx:id="labTestTable" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="testNameCol" text="Test" />
+                            <TableColumn fx:id="testResultCol" text="Result" />
+                            <TableColumn fx:id="normalRangeCol" text="Normal Range" />
+                            <TableColumn fx:id="testDateCol" text="Test Date" />
+                        </columns>
+                    </TableView>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Admissions -->
+                <TitledPane text="Previous Admissions">
+                    <TableView fx:id="admissionTable" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="admissionDateCol" text="Date" />
+                            <TableColumn fx:id="departmentCol" text="Department" />
+                            <TableColumn fx:id="diagnosisCol" text="Diagnosis" />
+                            <TableColumn fx:id="dischargeDateCol" text="Discharged On" />
+                            <TableColumn fx:id="doctorCol" text="Doctor" />
+                        </columns>
+                    </TableView>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Allergies -->
+                <TitledPane text="Allergies and Sensitivities">
+                    <VBox fx:id="allergyList" spacing="5" />
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Family History -->
+                <TitledPane text="Family Medical History">
+                    <VBox fx:id="familyHistoryList" spacing="5" />
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+                </TitledPane>
+
+                <!-- Vaccinations -->
+                <TitledPane text="Vaccination Records">
+                    <TableView fx:id="vaccineTable" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="vaccineCol" text="Vaccine" />
+                            <TableColumn fx:id="vaccineDateCol" text="Date Taken" />
+                            <TableColumn fx:id="vaccineStatusCol" text="Status" />
+                        </columns>
+                    </TableView>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </TitledPane>
+
+                <!-- ER Notes -->
+                <TitledPane text="ER Notes">
+                    <VBox spacing="5">
+                        <Label fx:id="erNoteContent" wrapText="true" />
+                        <Label fx:id="erNoteMeta" style="-fx-text-fill: gray;" />
+                    </VBox>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Attached Files -->
+                <TitledPane text="Attached Medical Files">
+                    <VBox fx:id="attachmentList" spacing="5" />
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+                <!-- Recommendations -->
+                <TitledPane text="AI Health Summary and Referrals">
+                    <VBox spacing="5">
+                        <Label fx:id="aiSummaryLabel" />
+                        <Label fx:id="specialistReferralLabel" />
+                    </VBox>
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+                </TitledPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+            <Button fx:id="backButton" text=" Back to Dashboard" />
+            <Button fx:id="printButton" text=" Print" />
+            <Button fx:id="savePdfButton" text=" Save as PDF" />
+        </HBox>
+    </bottom>
+
+
+</BorderPane>

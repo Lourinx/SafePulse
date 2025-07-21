@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="817.0" prefWidth="1440.0" stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+
+
+    <!-- Main Content -->
+    <center>
+        <AnchorPane fx:id="mainAnchor" prefHeight="623.0" prefWidth="762.0" style="-fx-background-color: #f8f9fa;">
+
+            <!-- Header -->
+            <Label layoutX="20.0" layoutY="34.0" prefWidth="393.0" style="-fx-font-size: 26px; -fx-font-weight: bold;" text="SafePulseID ER Dashboard " />
+            <Label layoutX="20.0" layoutY="126.0" style="-fx-text-fill: #6a7b81;" text="Logged in as: Dr. Sara – ER" />
+
+            <!-- Search & Filters -->
+            <HBox layoutX="50.0" layoutY="167.0" prefHeight="23.0" prefWidth="742.0" spacing="15.0">
+                <TextField fx:id="searchField" prefHeight="23.0" prefWidth="310.0" promptText="Search by name, insurance, or status" />
+                <ComboBox fx:id="statusFilter" prefWidth="150" />
+                <DatePicker fx:id="dateFilter" prefWidth="160.0" promptText="Filter by Date" />
+            </HBox>
+
+            <!-- Table -->
+            <TableView fx:id="table" layoutX="50.0" layoutY="205.0" prefHeight="250" prefWidth="922" style="-fx-border-color: #737373;">
+                <columns>
+                    <TableColumn fx:id="colName" prefWidth="150" text="Name" />
+                    <TableColumn fx:id="colAge" prefWidth="60" text="Age" />
+                    <TableColumn fx:id="colBlood" prefWidth="100" text="Blood Type" />
+                    <TableColumn fx:id="colStatus" prefWidth="100" text="Status" />
+                    <TableColumn fx:id="colInsurance" prefWidth="150" text="Insurance" />
+                    <TableColumn fx:id="colTime" prefWidth="173.5999755859375" text="Time Scanned" />
+               <TableColumn fx:id="colDate" prefWidth="186.39996337890625" text="Date Scanned" />
+                </columns>
+            </TableView>
+
+            <!-- Case Counters -->
+            <HBox layoutX="50.0" layoutY="467.0" spacing="10.0">
+                <Label fx:id="pendingCasesLabel" style="-fx-background-color: #f1f3f4; -fx-padding: 5 10; -fx-background-radius: 10;" text="Pending Cases: 0" />
+                <Label fx:id="handledCasesLabel" style="-fx-background-color: #f1f3f4; -fx-padding: 5 10; -fx-background-radius: 10;" text="Handled Cases: 0" />
+                <Label fx:id="totalCasesLabel" style="-fx-background-color: #f1f3f4; -fx-padding: 5 10; -fx-background-radius: 10;" text="Total Cases: 0" />
+            </HBox>
+
+            <!-- Note Section Title + Add -->
+            <HBox alignment="CENTER_LEFT" layoutX="20" layoutY="435" spacing="10.0" />
+
+           <!-- Notes Section -->
+            <ScrollPane fitToWidth="true" layoutX="50.0" layoutY="545.0" prefHeight="200.0" prefWidth="922.0" style="-fx-border-color: #737373; -fx-background-color: #f8f9fa;">
+                <content>
+                    <VBox fx:id="notesSection" spacing="10.0">
+                        <padding>
+                            <Insets bottom="5" left="5" right="5" top="5" />
+                        </padding>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- Logout Button -->
+            <HBox alignment="BOTTOM_RIGHT" layoutX="580" layoutY="600" style="-fx-background-color: #f8f9fa;" />
+         <Label fx:id="handleAddNote" layoutX="900.0" layoutY="517.0" onMouseClicked="#handleAddNote" text="Add Note" />
+               <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="677.0" layoutY="516.0" opacity="0.28" pickOnBounds="true" preserveRatio="true">
+                   <image>
+                       <Image url="@../../../Icon.png" />
+                   </image>
+               </ImageView>
+             <Label layoutX="25.0" layoutY="512.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Patient Notes" />
+         <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="724.0" layoutY="768.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../logout.png" />
+            </image>
+         </ImageView>
+
+        </AnchorPane>
+    </center>
+
+</BorderPane>

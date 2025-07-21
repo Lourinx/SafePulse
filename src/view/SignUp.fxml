@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600" prefWidth="1000" style="-fx-background-color: linear-gradient(to right, #f0f9ff, #ffffff);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AuthController">
+
+    <!-- LEFT SIDE: Branding -->
+    <left>
+        <VBox alignment="CENTER" prefWidth="400" spacing="15" style="-fx-background-color: #060725;">
+            <padding><Insets bottom="60" left="30" right="30" top="60" /></padding>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../Downloads/Screenshot_2025-07-21_at_15.40.56-removebg-preview.png" />
+            </image>
+         </ImageView>
+            <Label style="-fx-font-size: 36px; -fx-font-weight: bold;" text="SafePulseID" textFill="#f8f8f8" />
+            <Label style="-fx-font-size: 14px; -fx-text-fill: #6b7280;" text="“Every Age. Every Life. Every Second Counts.”" textFill="WHITE" />
+        </VBox>
+    </left>
+
+    <!-- RIGHT SIDE: Form -->
+    <center>
+        <VBox alignment="TOP_LEFT" spacing="20" style="-fx-padding: 60 80 60 80;">
+            <!-- Heading -->
+            <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Create your account" />
+
+            <!-- Full Name -->
+            <VBox spacing="6">
+                <Label style="-fx-font-weight: bold;" text="Doctor's Name" />
+                <TextField fx:id="signUpNameField" prefWidth="280.0" promptText="e.g., Dr. John Smith" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6;" />
+            </VBox>
+
+            <!-- Password -->
+            <VBox spacing="6">
+                <Label style="-fx-font-weight: bold;" text="Password" />
+                <HBox spacing="8">
+                    <PasswordField fx:id="signUpPasswordField" prefWidth="280.0" promptText="Enter password" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6;" />
+                    <TextField fx:id="signUpPasswordTextField" managed="false" prefWidth="280" promptText="Enter password" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6;" visible="false" />
+                    <Button fx:id="toggleSignUpPasswordBtn" onAction="#toggleSignUpPasswordVisibility" prefHeight="26" style="-fx-background-color: transparent; -fx-text-fill: #5a4bff; -fx-font-size: 11px;" text="Show" />
+                </HBox>
+            </VBox>
+
+            <!-- License -->
+            <VBox spacing="6">
+                <Label style="-fx-font-weight: bold;" text="Medical License Number" />
+                <TextField fx:id="licenseNumberField" prefHeight="26.0" prefWidth="403.0" promptText="e.g., MED12345" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6;" />
+            </VBox>
+
+            <!-- Hospital -->
+            <VBox spacing="6">
+                <Label style="-fx-font-weight: bold;" text="Hospital Name" />
+                <TextField fx:id="hospitalNameField" promptText="Enter hospital name" style="-fx-background-color: #f3f4f6; -fx-background-radius: 6;" />
+            </VBox>
+
+            <!-- Buttons -->
+            <VBox spacing="10" style="-fx-padding: 10 0 0 0;">
+                <Button onAction="#handleSignUp" prefHeight="25.0" prefWidth="290.0" style="-fx-background-color: #090832; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6;" text="Sign Up →" />
+   
+                <Button onAction="#switchToLogin" prefWidth="290.0" style="-fx-background-color: #e5e7eb; -fx-text-fill: #374151; -fx-font-weight: bold; -fx-background-radius: 6;" text="Already have an account? Login" />
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

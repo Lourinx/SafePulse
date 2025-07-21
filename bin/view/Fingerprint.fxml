@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../style/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FingerprintController">
+
+    <center>
+        <AnchorPane fx:id="mainAnchor" maxWidth="-Infinity" prefWidth="760.0" style="-fx-background-color: #f8f9fa;">
+
+            <!-- Wrapper VBox to center content vertically and horizontally -->
+            <VBox alignment="CENTER" layoutX="0.0" layoutY="80.0" prefWidth="760.0" spacing="25.0">
+                
+                <!-- Shadowed container for the video -->
+                <StackPane maxWidth="-Infinity" prefHeight="395.0" prefWidth="644.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 20, 0.2, 0, 4); -fx-background-color: white; -fx-background-radius: 10; -fx-padding: 10; -fx-border-color: #1e293b;">
+                    <MediaView fx:id="videoView" fitHeight="200" fitWidth="320" preserveRatio="true" />
+                </StackPane>
+
+                <!-- Status label -->
+                <Label fx:id="statusLabel" style="-fx-font-size: 16px;" text="Waiting for fingerprint...">
+               <font>
+                  <Font name="Bell MT Bold" size="12.0" />
+               </font></Label>
+
+                <!-- Scan button -->
+                <Button onAction="#handleScan" style="-fx-font-size: 14px; -fx-border-color: #1e293b;" text="Scan Finger">
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+
+            </VBox>
+        </AnchorPane>
+    </center>
+</BorderPane>

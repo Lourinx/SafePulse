@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<doctors>
+                
+    
+    
+    <doctor>
+                                
+        
+        
+        <name>Dr. Anita</name>
+                                
+        
+        
+        <password>anita123</password>
+                                
+        
+        
+        <licenseNumber>MED11223</licenseNumber>
+                                
+        
+        
+        <hospital>UII</hospital>
+                            
+    
+    
+    </doctor>
+            
+    
+    
+    <doctor>
+                        
+        
+        <name>Dr. John Smith</name>
+                        
+        
+        <password>password123</password>
+                        
+        
+        <licenseNumber>MED12345</licenseNumber>
+                        
+        
+        <hospital>General Hospital</hospital>
+                    
+    
+    </doctor>
+        
+    
+    <doctor>
+                
+        <name>Dr. Maya</name>
+                
+        <password>12345</password>
+                
+        <licenseNumber>12345678</licenseNumber>
+                
+        <hospital>UII</hospital>
+            
+    </doctor>
+    
+    <doctor>
+        <name>Hilman Dhafin Rasyadi</name>
+        <password>SafePulse</password>
+        <licenseNumber>MED123456</licenseNumber>
+        <hospital>Puri Husada</hospital>
+    </doctor>
+</doctors>
